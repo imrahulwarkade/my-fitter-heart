@@ -13,7 +13,7 @@ import React from "react";
 
 const page = () => {
   return (
-    <main className="w-full relative max-w-[1536px] overflow-x-hidden mx-auto">
+    <main className="w-full relative">
       <FloatingBtn />
       <NavBar />
       <Home />
