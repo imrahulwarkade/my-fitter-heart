@@ -11,9 +11,9 @@ const WellbeingCard = ({
   desc = "Proximity to pulse points ensures unparalleled reliability and precision.",
 }) => {
   return (
-    <div className="relative top-[-25%] transform-top flex items-center justify-between h-[338px] w-[700px] lg:w-[788px] 4xl:h-[468px] 4xl:w-[998px] bg-[#ffffff0f] rounded-4xl border border-[#FFFFFF66] backdrop-blur-2xl overflow-hidden">
+    <div className="relative top-[-25%] transform-top flex items-center justify-between flex-col md:flex-row h-[60vh] md:h-[338px] w-[700px] lg:w-[788px] 4xl:h-[468px] 4xl:w-[998px] bg-[#ffffff0f] rounded-4xl border border-[#FFFFFF66] backdrop-blur-2xl overflow-hidden">
       {/* Left Text Section */}
-      <div className="pl-16 flex flex-col  justify-center w-[380px]">
+      <div className="pl-8 max-md:pt-4 md:pl-16 flex flex-col  justify-center w-[380px]">
         <p className="pb-[18px] 4xl:text-[28px] text-white text-[28px] font-normal leading-[136%] tracking-[-0.28px] opacity-40">
           {sno}
         </p>
@@ -26,7 +26,7 @@ const WellbeingCard = ({
       </div>
 
       {/* Right Image Placeholder (You can add your Image here later) */}
-      <div className="h-full flex flex-1 justify-end items-end">
+      <div style={{scale : id==1 ? 1.3 : 1}} className="h-full w-full flex flex-1 justify-end items-end">
         {id === 3 ? <Bettery /> : id === 2 ? <FloatingRing /> : <FitterRing />}
       </div>
     </div>

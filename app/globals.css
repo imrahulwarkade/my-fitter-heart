@@ -9,3 +9,7 @@ body {
   padding: 0;
   background-color: #0c1319;
 }
+
+.hidescroller::-webkit-scrollbar{
+  display: none;
+}

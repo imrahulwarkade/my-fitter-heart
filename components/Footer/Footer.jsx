@@ -57,9 +57,9 @@ const FAQHeader = () => {
 
     return () => clearTimeout(timer);
   }, [charIndex, deleting, textIndex]);
-
+// bg-[#0C0F12]
   return (
-    <section className="w-full bg-[#0C0F12] text-white py-24 px-6 md:px-20 flex flex-col items-center justify-center space-y-10">
+    <section className="w-full  text-white py-24 px-6 md:px-20 flex flex-col items-center justify-center space-y-10">
       {/* Title */}
       <h1 className="text-4xl md:text-6xl font-extrabold text-center">
         Frequently asked questions
@@ -90,7 +90,7 @@ const Footer = () => {
   return (
     <>
       <FAQHeader />
-      <footer className="w-full bg-[#0C0F12] text-white py-20 px-6 relative">
+      <footer className="w-full max-w-[1090px] text-white py-20 px-[5%] md:px-[8%] relative mx-auto">
         <div className=" mx-auto space-y-10">
           {faqs.map((faq, index) => (
             <div key={faq.id}>
@@ -106,7 +106,7 @@ const Footer = () => {
                     {faq.question}
                   </h3>
                 </div>
-                <button className="flex-shrink-0 bg-white text-black rounded-full p-2">
+                <button className="shrink-0 bg-white text-black rounded-full p-2">
                   {openIndex === index ? (
                     <Minus size={20} strokeWidth={2} />
                   ) : (

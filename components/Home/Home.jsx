@@ -1,5 +1,8 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import {gsap} from 'gsap';
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger);
 
 const Home = () => {
   const [currentVideo, setCurrentVideo] = useState(0);
@@ -34,7 +37,26 @@ const Home = () => {
     },
   ];
 
+
   useEffect(() => {
+    const tl = gsap.timeline();
+    const elements = ['line', 'desc', 'buy'].map(id => `#${id}-${currentVideo}`);
+    
+    elements.forEach((element, index) => {
+      tl.fromTo(element,
+      {
+        opacity: 0,
+        x: -10
+      },
+      {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        ease: "power2.out"
+      },
+      index * 0.2 
+      );
+    });
     const interval = setInterval(() => {
       setCurrentVideo((prev) => (prev + 1) % videos.length);
     }, 5000);
@@ -70,7 +92,7 @@ const Home = () => {
       {videos.map((video, index) => (
         <div
           key={index}
-          className={`absolute inset-0 mx-[5%] md:mx-[8%] z-5 flex items-start justify-center md:items-center md:justify-start px-5 md:px-24 transition-all duration-1000 ${
+          className={`absolute inset-0 mx-[5%] md:mx-[8%] mt-24 z-5 flex items-start justify-center md:items-center md:justify-start px-5 md:px-24 transition-all duration-1000 ${
             index === currentVideo
               ? "opacity-100 pointer-events-auto"
               : "opacity-0 pointer-events-none"
@@ -81,18 +103,20 @@ const Home = () => {
               index % 2 === 0 ? "right-0" : "left-0"
             }`}
           >
-            {video.title.split("\n").map((line, lineIndex) => (
-              <p
-                key={lineIndex}
-                className="text-white text-2xl md:text-4xl font-bold tracking-tight"
-              >
-                {line}
-              </p>
-            ))}
-            <p className="text-white/80 text-sm md:text-xl mt-4 max-w-lg">
+            <div id={`line-${index}`}>
+              {video.title.split("\n").map((line, lineIndex) => (
+                <p
+                  key={lineIndex}
+                  className="text-white text-2xl md:text-4xl font-bold tracking-tight"
+                >
+                  {line}
+                </p>
+              ))}
+            </div>
+            <p id={`desc-${index}`} className="text-white/80 text-sm md:text-xl mt-4 max-w-lg">
               {video.description}
             </p>
-            <div className="flex gap-4 mt-8">
+            <div id={`buy-${index}`} className="flex gap-4 mt-8">
               <a href="/product-page">
                 <button className="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 bg-white text-gray-900 py-3 px-8 rounded-full hover:bg-gray-200 transition-all">
                   Buy Now

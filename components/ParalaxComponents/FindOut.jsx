@@ -27,9 +27,9 @@ const FindOut = () => {
         </p>
 
         {/* Cards */}
-        <div className="mt-8 flex flex-wrap gap-4">
+        <div className="mt-8 flex md:flex-wrap gap-4">
           {/* Biological Age */}
-          <div className="bg-[#1b1d1f]/80 backdrop-blur-md rounded-2xl p-5 w-[180px] flex flex-col justify-between">
+          <div className="bg-[#1b1d1f]/80 backdrop-blur-md rounded-2xl p-5 w-full max-w-[180px] flex flex-col justify-between">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 bg-green-900/40 rounded-full flex items-center justify-center">
                 <svg
@@ -53,7 +53,7 @@ const FindOut = () => {
           </div>
 
           {/* Actual Age */}
-          <div className="bg-[#1b1d1f]/80 backdrop-blur-md rounded-2xl p-5 w-[180px] flex flex-col justify-between">
+          <div className="bg-[#1b1d1f]/80 backdrop-blur-md rounded-2xl p-5 w-full max-w-[180px] flex flex-col justify-between">
             <div className="flex items-center gap-2 mb-2">
               <div className="w-8 h-8 bg-indigo-900/40 rounded-full flex items-center justify-center">
                 <svg

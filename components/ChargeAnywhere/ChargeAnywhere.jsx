@@ -15,9 +15,10 @@ const ChargeAnywhere = () => {
       scrollTrigger: {
         trigger: container.current,
         start: "top top",
-        end: "bottom 10%",
+        end: "200% top",
         pin: true,
         scrub: true,
+        ease: "power2.out",
       },
     });
     tl.to(obj, {
@@ -31,6 +32,10 @@ const ChargeAnywhere = () => {
         setAt(Math.floor(obj.count));
       },
     });
+    return () => {
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+      tl.kill();
+    };
   }, []);
 
   return (

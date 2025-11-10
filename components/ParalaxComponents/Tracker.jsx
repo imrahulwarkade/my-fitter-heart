@@ -15,9 +15,9 @@ const Tracker = () => {
       />
 
       {/* Overlay Content */}
-      <div className="absolute inset-0 flex flex-col justify-center px-10 md:px-20 space-y-6">
+      <div className="absolute inset-0 flex flex-col justify-center max-md:items-center  md:px-20 space-y-6 mt-[10vh] md:mt-32 xl:mt-20 ">
         {/* Achievement Card (Top Right) */}
-        <div className="absolute top-10 right-10 bg-[#1B1D1F]/80 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 max-w-sm shadow-md">
+        <div className="absolute top-10 md:right-10 bg-[#1B1D1F]/80 backdrop-blur-md border border-white/10 rounded-xl px-6 py-4 max-w-sm shadow-md max-md:mx-[5%]">
           <div className="flex items-center gap-2 mb-1">
             <Flame size={20} className="text-green-400" />
             <p className="text-green-400 font-medium text-lg">Peak Achieved!</p>
@@ -27,17 +27,19 @@ const Tracker = () => {
           </p>
         </div>
 
-        {/* Heading & Description */}
-        <h1 className="text-4xl md:text-6xl font-semibold max-w-[600px] leading-tight">
-          Track your wellness journey
-        </h1>
-        <p className="text-gray-300 text-lg max-w-[600px]">
-          It adapts to you, moves with you and tracks your performance
-          effortlessly
-        </p>
+        <div className="w-[80%] mx-auto mt-[22vh]  md:ms-12 md:mt-5xl:mt-[5rem] xl:w-[591px] xl:ms-5 2xl:mt-60   ">
+          {/* Heading & Description */}
+          <h1 className="text-4xl md:text-6xl font-semibold max-w-[600px] leading-tight text-center">
+            Track your wellness journey
+          </h1>
+          <p className="text-gray-300 text-lg max-w-[600px]">
+            It adapts to you, moves with you and tracks your performance
+            effortlessly
+          </p>
+        </div>
 
         {/* Stats Cards */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8 max-w-3xl">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-2 md:mt-8 max-w-3xl">
           <div className="bg-[#1B1D1F]/80 backdrop-blur-md border border-white/10 rounded-2xl p-5 flex flex-col items-start">
             <Activity className="text-green-400 mb-2" />
             <p className="text-gray-300 text-sm">Running</p>

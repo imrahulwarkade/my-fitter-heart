@@ -15,6 +15,7 @@ import Footer from './Footer/Footer.jsx';
 import Consumer from './Consumer/Consumer.jsx';
 import JoinUs from './JoinUs/JoinUs.jsx';
 import Testimonials from './Testimonials/Testimonials.jsx';
+import FloatingBtn from './Common/FloatingBtn.jsx';
 export default {
     Home,
     ParallaxEffect,
@@ -33,4 +34,5 @@ export default {
     Consumer,
     JoinUs,
     Testimonials,
+    FloatingBtn,
 };

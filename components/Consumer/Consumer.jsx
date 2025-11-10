@@ -3,7 +3,7 @@ import { User, Briefcase, Phone, Mail, MapPin } from "lucide-react";
 
 const Consumer = () => {
   return (
-    <section className="w-full bg-[#0C0F12] text-white py-24 px-6 md:px-20 relative flex flex-col items-center">
+    <section className="w-full  text-white py-24 px-6 md:px-20 relative flex flex-col items-center">
       {/* Heading */}
       <h1 className="text-4xl md:text-5xl font-bold text-center">
         Consumer Protection
@@ -16,8 +16,9 @@ const Consumer = () => {
         of the Grievance Officer and the Nodal Person are mentioned below:
       </p>
 
+    <div className="w-full relative flex flex-col md:flex-row gap-12 justify-center items-center">
       {/* Card */}
-      <div className="bg-[#13171B] mt-12 p-8 rounded-2xl shadow-md w-full max-w-md border border-gray-800">
+      <div className="bg-[#161E24] mt-12 p-8 rounded-2xl shadow-md w-full max-w-md border border-gray-800">
         <h2 className="text-xl font-semibold mb-6">Nodal Person</h2>
 
         <ul className="space-y-4 text-gray-300">
@@ -46,6 +47,37 @@ const Consumer = () => {
           </li>
         </ul>
       </div>
+      {/* Card */}
+      <div className="bg-[#161E24] mt-12 p-8 rounded-2xl shadow-md w-full max-w-md border border-gray-800">
+        <h2 className="text-xl font-semibold mb-6">Grievance Officer</h2>
+
+
+        <ul className="space-y-4 text-gray-300">
+          <li className="flex items-center gap-3">
+            <User className="text-gray-400" size={20} />
+            <span>Kamal Rao</span>
+          </li>
+          <li className="flex items-center gap-3">
+            <Briefcase className="text-gray-400" size={20} />
+            <span>Product Manager</span>
+          </li>
+          <li className="flex items-center gap-3">
+            <Phone className="text-gray-400" size={20} />
+            <span>08888003430</span>
+          </li>
+          <li className="flex items-center gap-3">
+            <Mail className="text-gray-400" size={20} />
+            <span>support@fittr.care</span>
+          </li>
+          <li className="flex items-start gap-3">
+            <MapPin className="text-gray-400 mt-1" size={20} />
+            <span>
+            7th Floor, Goodwill Byond, Next to WTC, Kharadi, Pune, Maharashtra - 411014
+            </span>
+          </li>
+        </ul>
+      </div>
+    </div>
     </section>
   );
 };
