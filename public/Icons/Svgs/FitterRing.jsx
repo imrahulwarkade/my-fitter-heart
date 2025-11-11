@@ -1,4 +1,3 @@
-'use client'
 import React from "react";
 const FitterRing = () => {
   const [ringBeat, setRingBeat] = React.useState(0);

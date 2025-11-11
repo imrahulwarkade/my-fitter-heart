@@ -1,6 +1,42 @@
 import * as React from "react";
-const FloatingRing = (props) => (
-  <svg
+const FloatingRing = () => {
+      const [ringBeat, setRingBeat] = React.useState(0);
+      const [movementPosition,setMovementPosition] = React.useState();
+      
+      React.useEffect(() => {
+        let value = 0;
+        let movementValue = 146.46246337890625;
+        let directionTop = true;
+        let animationFrameId;
+    
+        const animate = () => {
+          value += 0.008; 
+          if(directionTop){
+              movementValue += 0.5;
+          }
+          else{
+            movementValue -= 0.5;
+          }
+          if (value > 1) {
+            value = 0;
+          }
+          if(Math.round(movementValue)>180){
+            directionTop = false;
+          }
+          if(Math.round(movementValue)<146){
+            directionTop = true;
+          }
+          setRingBeat(value);
+          let movement = `matrix(1.2200000286102295,0,0,1.2200000286102295,-73.40000915527344,-${movementValue})`
+          setMovementPosition(movement)
+          animationFrameId = requestAnimationFrame(animate);
+        };
+        animate();
+        return () => {
+          cancelAnimationFrame(animationFrameId);
+        };
+      }, []);
+  return <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 512 367"
@@ -13,7 +49,6 @@ const FloatingRing = (props) => (
       transform: "translate3d(0px, 0px, 0px)",
       contentVisibility: "visible",
     }}
-    {...props}
   >
     <defs>
       <clipPath id="__lottie_element_1832">
@@ -42,7 +77,7 @@ const FloatingRing = (props) => (
       <g
         className="png"
         transform="matrix(1.2200000286102295,0,0,1.2200000286102295,-73.40000915527344,-213.90000915527344)"
-        opacity={0.926067461007197}
+        opacity={ringBeat}
         style={{
           display: "block",
         }}
@@ -56,7 +91,7 @@ const FloatingRing = (props) => (
       </g>
       <g
         className="png"
-        transform="matrix(1.2200000286102295,0,0,1.2200000286102295,-73.40000915527344,-146.46246337890625)"
+        transform={movementPosition}
         opacity={1}
         style={{
           display: "block",
@@ -71,5 +106,5 @@ const FloatingRing = (props) => (
       </g>
     </g>
   </svg>
-);
+};
 export default FloatingRing;

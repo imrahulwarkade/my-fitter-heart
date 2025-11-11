@@ -1,6 +1,22 @@
 import * as React from "react";
-const Bettery = (props) => (
-  <svg
+const Bettery = () => {
+    const [rotateG1,setRotateG1] = React.useState(`matrix(0.7657480835914612,-0.509570300579071,0.509570300579071,0.7657480835914612,-88.33596801757812,186.83200073242188)`)
+    const [rotateG2,setRotateG2] = React.useState(`matrix(-0.47913166880607605,-0.019730165600776672,0.019730165600776672,-0.47913166880607605,524.9351196289062,286.9179382324219)`)
+
+    React.useEffect(() => {
+      let value = 0;
+      let animationFrameId;
+  
+      const animate = () => {
+
+        animationFrameId = requestAnimationFrame(animate);
+      };
+      animate();
+      return () => {
+        cancelAnimationFrame(animationFrameId);
+      };
+    }, []);
+  return <svg
     xmlns="http://www.w3.org/2000/svg"
     xmlnsXlink="http://www.w3.org/1999/xlink"
     viewBox="0 0 512 512"
@@ -13,7 +29,6 @@ const Bettery = (props) => (
       transform: "translate3d(0px, 0px, 0px)",
       contentVisibility: "visible",
     }}
-    {...props}
   >
     <defs>
       <clipPath id="__lottie_element_1844">
@@ -49,7 +64,7 @@ const Bettery = (props) => (
     <g clipPath="url(#__lottie_element_1844)">
       <g
         className="png"
-        transform="matrix(0.7657480835914612,-0.509570300579071,0.509570300579071,0.7657480835914612,-88.33596801757812,186.83200073242188)"
+        transform={rotateG1}
         opacity={1}
         style={{
           display: "block",
@@ -64,7 +79,7 @@ const Bettery = (props) => (
       </g>
       <g
         className="png"
-        transform="matrix(-0.47913166880607605,-0.019730165600776672,0.019730165600776672,-0.47913166880607605,524.9351196289062,286.9179382324219)"
+        transform={rotateG2}
         opacity={1}
         style={{
           display: "block",
@@ -135,5 +150,5 @@ const Bettery = (props) => (
       </g>
     </g>
   </svg>
-);
+};
 export default Bettery;
