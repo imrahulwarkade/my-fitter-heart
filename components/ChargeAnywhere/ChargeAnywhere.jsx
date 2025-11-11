@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 
 const ChargeAnywhere = () => {
   const container = useRef(null);
-  const [at, setAt] = useState(1);
+  const [at, setAt] = useState(29);
   useEffect(() => {
     const obj = { count: 29 };
 
@@ -15,10 +15,10 @@ const ChargeAnywhere = () => {
       scrollTrigger: {
         trigger: container.current,
         start: "top top",
-        end: "200% top",
+        end: "120% top",
         pin: true,
         scrub: true,
-        ease: "power2.out",
+        // ease: "power2.out",
       },
     });
     tl.to(obj, {
